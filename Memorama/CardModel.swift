@@ -10,6 +10,8 @@ import Foundation
 
 class CardModel {
     
+    let MAX_CARDS:UInt32 = 13
+    
     func getCards() -> [Card] {
         
         // Declare an array to store the generated cards
@@ -19,7 +21,7 @@ class CardModel {
         for _ in 1...8 {
             // this function returns a number between 0-12
             // TODO: make 13 a constant of max Cards we have. no magic numbers!
-            let randomNumber = arc4random_uniform(13) + 1
+            let randomNumber = arc4random_uniform(MAX_CARDS) + 1
             print("random number was \(randomNumber)")
             // First card object
             let cardOne = Card()
