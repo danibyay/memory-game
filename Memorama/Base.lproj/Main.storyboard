@@ -31,7 +31,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="mnR-5R-XSW">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CardCell" id="mnR-5R-XSW" customClass="CardCollectionViewCell" customModule="Memorama" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="158" height="224"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -56,6 +56,10 @@
                                             <constraint firstAttribute="trailing" secondItem="uEv-Z2-hzf" secondAttribute="trailing" id="q7H-GE-OxC"/>
                                             <constraint firstItem="uEv-Z2-hzf" firstAttribute="top" secondItem="mnR-5R-XSW" secondAttribute="top" id="zvg-hS-Nh4"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="backImageView" destination="uEv-Z2-hzf" id="xfI-7C-sIu"/>
+                                            <outlet property="frontImageView" destination="duq-0z-8OW" id="yZF-Zt-XG9"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
