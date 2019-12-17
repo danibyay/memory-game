@@ -14,6 +14,8 @@
 		23BAB02623A93C3500F5335D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 23BAB02423A93C3500F5335D /* LaunchScreen.storyboard */; };
 		23BAB03123A93C3500F5335D /* MemoramaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAB03023A93C3500F5335D /* MemoramaTests.swift */; };
 		23BAB03C23A93C3500F5335D /* MemoramaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAB03B23A93C3500F5335D /* MemoramaUITests.swift */; };
+		23BAB04A23A9489100F5335D /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAB04923A9489100F5335D /* CardModel.swift */; };
+		23BAB04C23A94AFB00F5335D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23BAB04B23A94AFB00F5335D /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		23BAB03723A93C3500F5335D /* MemoramaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemoramaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		23BAB03B23A93C3500F5335D /* MemoramaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoramaUITests.swift; sourceTree = "<group>"; };
 		23BAB03D23A93C3500F5335D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		23BAB04923A9489100F5335D /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		23BAB04B23A94AFB00F5335D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				23BAB01B23A93C3500F5335D /* AppDelegate.swift */,
 				23BAB01D23A93C3500F5335D /* ViewController.swift */,
+				23BAB04923A9489100F5335D /* CardModel.swift */,
+				23BAB04B23A94AFB00F5335D /* Card.swift */,
 				23BAB01F23A93C3500F5335D /* Main.storyboard */,
 				23BAB02223A93C3500F5335D /* Assets.xcassets */,
 				23BAB02423A93C3500F5335D /* LaunchScreen.storyboard */,
@@ -261,6 +267,8 @@
 			files = (
 				23BAB01E23A93C3500F5335D /* ViewController.swift in Sources */,
 				23BAB01C23A93C3500F5335D /* AppDelegate.swift in Sources */,
+				23BAB04A23A9489100F5335D /* CardModel.swift in Sources */,
+				23BAB04C23A94AFB00F5335D /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
