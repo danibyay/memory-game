@@ -12,6 +12,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     var model = CardModel()
     var cardArray = [Card]()
+    var firstFlippedCardIndex:IndexPath?
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -53,12 +54,52 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if !card.isFlipped {
             cell.flip()
             card.isFlipped = true
-        } else {
-            cell.flipBack()
-            card.isFlipped = false
+            
+            // Determine if it's the first card or second card
+            if firstFlippedCardIndex == nil {
+                firstFlippedCardIndex = indexPath
+            } else {
+                checkForMatches(indexPath)
+            }
+            
         }
         
+    } // End didSelectItemAt method
+    
+    // MARK: - Game Logic
+    func checkForMatches(_ secondFlippedCardIndex:IndexPath) {
+        // get the cells for the two revealed cards
+        let firstCell = collectionView.cellForItem(at: firstFlippedCardIndex!) as? CardCollectionViewCell
+        let secondCell = collectionView.cellForItem(at: secondFlippedCardIndex) as? CardCollectionViewCell
+        
+        // get the cards for the two revealed cards
+        let firstCard = cardArray[firstFlippedCardIndex!.row]
+        let secondCard = cardArray[secondFlippedCardIndex.row]
+        
+        // check for match
+        if firstCard.imageName == secondCard.imageName {
+            // set the status
+            firstCard.isMatched = true
+            secondCard.isMatched = true
+            
+            // update the view
+            firstCell?.remove()
+            secondCell?.remove()
+            
+        } else {
+            // update the view
+            firstCell?.flipBack()
+            secondCell?.flipBack()
+            
+            // set the status of the model
+            firstCard.isFlipped = false
+            secondCard.isFlipped = false
+        }
+        
+        // reset the index to keep playing
+        firstFlippedCardIndex = nil
+        
     }
-
-}
+    
+} // End ViewControler Class
 
