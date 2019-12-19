@@ -17,13 +17,25 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     func setCard(_ card:Card) {
         self.card = card
+        
+        // if card should not appear anymore
+        if card.isMatched {
+            backImageView.alpha = 0
+            frontImageView.alpha = 0
+            return
+        } else {
+            backImageView.alpha = 1
+            frontImageView.alpha = 1
+        }
+        
+        // assign the image
         frontImageView.image = UIImage(named: card.imageName)
+        
+        // decide which side to display
         if card.isFlipped {
             UIView.transition(from: backImageView, to: frontImageView, duration: 0.0, options: [.transitionFlipFromLeft, .showHideTransitionViews], completion: nil)
-        } else if !card.isFlipped {
+        } else {
             UIView.transition(from: frontImageView, to: backImageView, duration: 0.0, options: [.transitionFlipFromRight, .showHideTransitionViews], completion: nil)
-        } else if card.isMatched {
-            remove()
         }
     }
     
@@ -42,9 +54,11 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     func remove() {
         // remove the views
-        // TODO: animate it
-        frontImageView.alpha = 0
         backImageView.alpha = 0
+        // animate it
+        UIView.animate(withDuration: 0.3, delay: 0.5, options: .curveEaseOut, animations: {
+            self.frontImageView.alpha = 0
+        }, completion: nil)
     }
 
 }

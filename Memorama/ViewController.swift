@@ -51,7 +51,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.cellForItem(at: indexPath) as! CardCollectionViewCell
         let card = cardArray[indexPath.row]
         
-        if !card.isFlipped {
+        if !card.isFlipped && !card.isMatched{
             cell.flip()
             card.isFlipped = true
             
@@ -87,13 +87,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             secondCell?.remove()
             
         } else {
-            // update the view
-            firstCell?.flipBack()
-            secondCell?.flipBack()
-            
             // set the status of the model
             firstCard.isFlipped = false
             secondCard.isFlipped = false
+            
+            // update the view
+            firstCell?.flipBack()
+            secondCell?.flipBack()
+        }
+        
+        // if the matched card is out of view (scrolled)
+        if firstCell == nil {
+            collectionView.reloadItems(at: [firstFlippedCardIndex!])
         }
         
         // reset the index to keep playing
