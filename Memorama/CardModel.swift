@@ -14,25 +14,36 @@ class CardModel {
     
     func getCards() -> [Card] {
         
+        // Array of generated numbers
+        var generatedNumbersArray = [Int]()
+        
         // Declare an array to store the generated cards
         var generatedCardsArray = [Card]()
         
         // Randomly generate pairs of cards
-        for _ in 1...8 {
+        while generatedNumbersArray.count < 8 {
             // this function returns a number between 0-12
             // TODO: make 13 a constant of max Cards we have. no magic numbers!
             let randomNumber = arc4random_uniform(MAX_CARDS) + 1
-            print("random number was \(randomNumber)")
-            // First card object
-            let cardOne = Card()
-            cardOne.imageName = "card\(randomNumber)"
-            generatedCardsArray.append(cardOne)
-            // Second card object
-            let cardTwo = Card()
-            cardTwo.imageName = "card\(randomNumber)"
-            generatedCardsArray.append(cardTwo)
             
-            // TODO: verify the pairs or cards are unique (don't repeat the random number)
+            // verify the pairs or cards are unique (don't repeat the random number)
+            if generatedNumbersArray.contains(Int(randomNumber)) == false {
+                print("random number was \(randomNumber)")
+                
+                // store in the dict
+                generatedNumbersArray.append(Int(randomNumber))
+                
+                // First card object
+                let cardOne = Card()
+                cardOne.imageName = "card\(randomNumber)"
+                generatedCardsArray.append(cardOne)
+                // Second card object
+                let cardTwo = Card()
+                cardTwo.imageName = "card\(randomNumber)"
+                generatedCardsArray.append(cardTwo)
+                
+
+            }
         }
         
         // TODO: Randomize the array

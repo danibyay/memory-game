@@ -14,7 +14,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var cardArray = [Card]()
     var firstFlippedCardIndex:IndexPath?
     var timer:Timer?
-    var milliseconds:Float = 10000
+    var milliseconds:Float = 30000
     
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
