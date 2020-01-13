@@ -28,6 +28,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         RunLoop.main.add(timer!, forMode: .commonModes)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        SoundManager.playSound(.shuffle)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -81,6 +85,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if !card.isFlipped && !card.isMatched{
             cell.flip()
+            SoundManager.playSound(.flip)
             card.isFlipped = true
             
             // Determine if it's the first card or second card
@@ -110,6 +115,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             firstCard.isMatched = true
             secondCard.isMatched = true
             
+            // play match sound
+            SoundManager.playSound(.match)
+            
             // update the view
             firstCell?.remove()
             secondCell?.remove()
@@ -121,6 +129,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             // set the status of the model
             firstCard.isFlipped = false
             secondCard.isFlipped = false
+            
+            // play no match sound
+            SoundManager.playSound(.nomatch)
             
             // update the view
             firstCell?.flipBack()
